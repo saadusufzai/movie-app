@@ -1,0 +1,15 @@
+.details {
+	height: 100vh;
+	background: $colorPrimary;
+
+	.container {
+		width: 80%;
+		margin: 0 auto;
+		color: #fff;
+
+		.movieDetails {
+			display: flex;
+			padding-top: 5em;
+		}
+	}
+}

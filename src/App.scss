@@ -1,0 +1,168 @@
+$backgroundColor: #011b3d;
+$linkHover: rgb(0, 98, 255);
+/* SCSS HEX */
+$colorPrimary: #02111bff;
+$backgroundColor: #a4031fff;
+$colorSecondary: #ee7b30ff;
+$celtic-blue: #276fbfff;
+$spanish-gray: #949b96ff;
+.navbar {
+	padding: 1em 2em;
+	color: #fff;
+
+	background-color: $backgroundColor;
+
+	.innerNav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	.logo {
+		font-size: 24px;
+		font-weight: 800;
+		color: #fff;
+	}
+	.menu {
+		list-style: none;
+		display: flex;
+		text-transform: uppercase;
+		a {
+			color: #fff;
+			text-decoration: none;
+			margin: 0 1em;
+			transition: color 0.3s ease-in-out;
+		}
+
+		a:hover {
+			color: $colorSecondary;
+		}
+	}
+}
+// home page
+.home {
+	background: $backgroundColor;
+
+	.container {
+		width: 80%;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+
+		h1 {
+			color: $colorSecondary;
+		}
+		.grid {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 2em;
+		}
+	}
+}
+
+// searchBox
+
+.searchBox {
+	width: 70%;
+	display: flex;
+	align-items: center;
+	margin: 2em auto;
+
+	input[type='text'] {
+		background: #fff;
+		margin: 0 auto;
+		outline: none;
+		border: none;
+		border-radius: 1em;
+		padding: 10px;
+	}
+
+	.sortButtons {
+		span {
+			color: #fff;
+		}
+
+		.btnSort {
+			background: #000;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			padding: 5px 10px;
+			margin: 0 5px;
+		}
+
+		.btnSort:hover {
+			color: $colorSecondary;
+			cursor: pointer;
+		}
+		.btnSort:focus {
+			box-shadow: 0 0 5px rgb(15, 15, 15);
+			color: $colorSecondary;
+		}
+	}
+}
+
+// movie box
+
+.movie-box {
+	position: relative;
+	z-index: 1;
+	box-shadow: 1px 1px 10px rgb(27, 27, 27);
+
+	.overlay {
+		cursor: pointer;
+		transform: translateY(100%);
+		z-index: -1;
+	}
+	&:hover .overlay {
+		width: 100%;
+		height: 100%;
+		background: #000;
+		opacity: 0.3;
+		position: absolute;
+		z-index: 2;
+		top: 0;
+		transform: translateY(0%);
+		transition: transform 0.3s ease-in-out;
+	}
+	.btnOverlay {
+		cursor: pointer;
+		display: none;
+		text-align: center;
+		position: absolute;
+		top: 50%;
+		left: 30%;
+		z-index: 2;
+		opacity: 1;
+		color: #fff;
+		font-weight: 600;
+		border-radius: 5px;
+		border: 5px solid $colorSecondary;
+		padding: 10px 15px;
+	}
+
+	.btnOverlay:hover {
+		transform: scale(1.02);
+		transition: transform 0.3s ease-in-out;
+	}
+
+	&:hover .btnOverlay {
+		display: block;
+	}
+}
+img {
+	width: 100%;
+	height: 100%;
+}
+
+img:hover {
+	cursor: pointer;
+	transform: scale(1.03);
+	transition: transform 0.2s ease-in-out;
+}
+
+// details pages
+
+@import 'details';

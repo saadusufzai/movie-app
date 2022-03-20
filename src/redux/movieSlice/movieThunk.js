@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 async function getMovieData(movie_id) {
-	const fearchMovieResult = await axios
+	const fetchMovieResult = await axios
 
 		.get(
 			`https://api.themoviedb.org/3/movie/${movie_id}?api_key=531c8779023f70f5ec45da60cc337e58&language=en-US`
@@ -13,7 +13,7 @@ async function getMovieData(movie_id) {
 		})
 		.catch((err) => console.error(err));
 
-	return fearchMovieResult;
+	return fetchMovieResult;
 }
 
 async function getTrendingMovies(vote, page) {
@@ -65,9 +65,28 @@ async function postUserRatings(payload) {
 	return postRating;
 }
 
+async function getTopRatedMovies() {
+	const fetchTopRated = await axios
+
+		.get(
+			`https://api.themoviedb.org/3/movie/top_rated?api_key=531c8779023f70f5ec45da60cc337e58&language=en-US&page=1`
+		)
+		.then(({ data }) => {
+			return data.results;
+		})
+		.catch((err) => console.error(err));
+
+	return fetchTopRated;
+}
+
 const postRatingData = createAsyncThunk(
 	'movie/postRatingData',
 	postUserRatings
+);
+
+const fetchTopRatedMovieData = createAsyncThunk(
+	'movie/fetchTopRatedMovieData',
+	getTopRatedMovies
 );
 const fetchMovieData = createAsyncThunk('movie/fetchMovieData', getMovieData);
 const fetchTrendingMovieData = createAsyncThunk(
@@ -85,4 +104,5 @@ export {
 	fetchTrendingMovieData,
 	fetchSimilarMoviesData,
 	postRatingData,
+	fetchTopRatedMovieData,
 };

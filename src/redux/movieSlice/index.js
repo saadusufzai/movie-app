@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
 	fetchMovieData,
 	fetchSimilarMoviesData,
+	fetchTopRatedMovieData,
 	fetchTrendingMovieData,
 	postRatingData,
 } from './movieThunk';
@@ -21,6 +22,10 @@ const initialState = {
 	},
 	rating: {
 		sending: false,
+	},
+	topRatedMovies: {
+		loading: true,
+		results: [],
 	},
 };
 
@@ -50,6 +55,13 @@ const movieSlice = createSlice({
 		[fetchSimilarMoviesData.fulfilled]: (state, action) => {
 			state.similarMovies.results = action.payload;
 			state.similarMovies.loading = false;
+		},
+		[fetchTopRatedMovieData.pending]: (state) => {
+			state.loading = true;
+		},
+		[fetchTopRatedMovieData.fulfilled]: (state, action) => {
+			state.topRatedMovies.results = action.payload;
+			state.topRatedMovies.loading = false;
 		},
 		[postRatingData.pending]: (state) => {
 			state.rating.sending = true;

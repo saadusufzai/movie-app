@@ -6,3 +6,4 @@
 - redux-toolkit
 - axios
 - react-star-ratings
+- d3

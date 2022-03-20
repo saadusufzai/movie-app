@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import MovieBox from '../components/MovieBox';
-import axios from 'axios';
 import Searchbox from '../components/Searchbox';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTrendingMovieData } from '../redux/movieSlice/movieThunk';
 
 const Home = () => {
-	const [list, setList] = useState();
-	let [page, setPage] = useState(1);
-	const [heading, setHeading] = useState('TRENDING MOVIES');
+	const [heading, setHeading] = useState('DISCOVER MOVIES');
+	const [page, setPage] = useState(1);
+	const [sort, setSort] = useState('desc');
+	const dispatch = useDispatch();
+	const list = useSelector((state) => state.movie.trendingMovies.results);
 
 	useEffect(() => {
-		axios
-			.get(
-				`https://api.themoviedb.org/3/trending/movie/week?api_key=531c8779023f70f5ec45da60cc337e58`
-			)
-			.then(({ data }) => setList(data.results))
-			.catch((err) => console.log(err));
-	}, [page]);
+		dispatch(fetchTrendingMovieData(sort, page));
+		// console.log(lists);
+		// setList(lists);
+	}, [page, sort]);
 
 	let newList = useSelector((state) => state.search.searchResult);
 	useEffect(() => {
@@ -28,14 +27,18 @@ const Home = () => {
 	return (
 		<div className='home'>
 			<div className='container'>
-				<Searchbox />
+				<Searchbox setSort={setSort} />
 				<h1>{heading}</h1>
 				<div className='grid'>
 					{newList.length > 0
 						? newList &&
-						  newList.map((movie) => <MovieBox id={movie.id} list={movie} />)
+						  newList
+								.filter((e) => e.poster_path != null)
+								.map((movie) => <MovieBox id={movie.id} list={movie} />)
 						: list &&
-						  list.map((movie) => <MovieBox id={movie.id} list={movie} />)}
+						  list
+								.filter((e) => e.poster_path != null)
+								.map((movie) => <MovieBox id={movie.id} list={movie} />)}
 				</div>
 			</div>
 		</div>

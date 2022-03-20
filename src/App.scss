@@ -6,6 +6,11 @@ $backgroundColor: #a4031fff;
 $colorSecondary: #ee7b30ff;
 $celtic-blue: #276fbfff;
 $spanish-gray: #949b96ff;
+
+* {
+	margin: 0;
+	padding: 0;
+}
 .navbar {
 	padding: 1em 2em;
 	color: #fff;
@@ -52,6 +57,7 @@ $spanish-gray: #949b96ff;
 		flex-direction: column;
 
 		h1 {
+			margin: 1em 0;
 			color: $colorSecondary;
 		}
 		.grid {
@@ -80,8 +86,9 @@ $spanish-gray: #949b96ff;
 	}
 
 	.sortButtons {
-		span {
+		p {
 			color: #fff;
+			margin-bottom: 5px;
 		}
 
 		.btnSort {
@@ -159,8 +166,6 @@ img {
 
 img:hover {
 	cursor: pointer;
-	transform: scale(1.03);
-	transition: transform 0.2s ease-in-out;
 }
 
 // details pages

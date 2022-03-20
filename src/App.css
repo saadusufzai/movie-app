@@ -1,4 +1,9 @@
 /* SCSS HEX */
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .navbar {
   padding: 1em 2em;
   color: #fff;
@@ -62,6 +67,7 @@
 }
 
 .home .container h1 {
+  margin: 1em 0;
   color: #ee7b30ff;
 }
 
@@ -94,8 +100,9 @@
   padding: 10px;
 }
 
-.searchBox .sortButtons span {
+.searchBox .sortButtons p {
   color: #fff;
+  margin-bottom: 5px;
 }
 
 .searchBox .sortButtons .btnSort {
@@ -184,16 +191,9 @@ img {
 
 img:hover {
   cursor: pointer;
-  -webkit-transform: scale(1.03);
-          transform: scale(1.03);
-  -webkit-transition: -webkit-transform 0.2s ease-in-out;
-  transition: -webkit-transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 
 .details {
-  height: 100vh;
   background: #02111bff;
 }
 
@@ -203,10 +203,86 @@ img:hover {
   color: #fff;
 }
 
+.details .container .similarMovies h1 {
+  margin-top: 2em;
+}
+
+.details .container .similarMovies .grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2em;
+  margin-top: 1em;
+}
+
 .details .container .movieDetails {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding-top: 5em;
+  gap: 1em;
+}
+
+.details .container .movieDetails .poster img {
+  min-width: 300px;
+}
+
+.details .container .movieDetails .topDetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.details .container .movieDetails .topDetails .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+}
+
+.details .container .movieDetails .topDetails .top p {
+  width: 50%;
+}
+
+.details .container .movieDetails .topDetails li {
+  list-style: none;
+  margin-left: 0.5em;
+  margin-top: 0.5em;
+}
+
+.details .container .movieDetails .topDetails .rating {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1em;
+}
+
+.details .container .movieDetails .topDetails .rating img {
+  width: 5em;
+  height: 2em;
+}
+
+.details .container .movieDetails .topDetails .rating span {
+  font-size: 24px;
+}
+
+.details .container .movieDetails .topDetails .rateThisMovie h3 {
+  margin: 1em 0;
 }
 /*# sourceMappingURL=App.css.map */

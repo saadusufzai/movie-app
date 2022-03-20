@@ -1,5 +1,4 @@
 .details {
-	height: 100vh;
 	background: $colorPrimary;
 
 	.container {
@@ -7,9 +6,68 @@
 		margin: 0 auto;
 		color: #fff;
 
+		.similarMovies {
+			h1 {
+				margin-top: 2em;
+			}
+
+			.grid {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 2em;
+				margin-top: 1em;
+			}
+		}
+
 		.movieDetails {
 			display: flex;
 			padding-top: 5em;
+			gap: 1em;
+
+			.poster {
+				img {
+					min-width: 300px;
+				}
+			}
+			.topDetails {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+
+				.top {
+					display: flex;
+					flex-direction: column;
+					gap: 1em;
+
+					p {
+						width: 50%;
+					}
+				}
+
+				li {
+					list-style: none;
+					margin-left: 0.5em;
+					margin-top: 0.5em;
+				}
+
+				.rating {
+					display: flex;
+					align-items: center;
+					gap: 1em;
+					img {
+						width: 5em;
+						height: 2em;
+					}
+					span {
+						font-size: 24px;
+					}
+				}
+				.rateThisMovie {
+					h3 {
+						margin: 1em 0;
+					}
+				}
+			}
 		}
 	}
 }

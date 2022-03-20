@@ -5,7 +5,9 @@ const Navbar = () => {
 	return (
 		<div className='navbar'>
 			<div className='innerNav'>
-				<div className='logo'>Techwa Movie APP</div>
+				<Link to='/' className='logo'>
+					Techwa Movie APP
+				</Link>
 				<ul className='menu'>
 					<li>
 						<Link to='/'>Home</Link>

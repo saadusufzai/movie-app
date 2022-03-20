@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import fetchSearchData from '../redux/searchSlice/searchThunk';
 
-const Searchbox = () => {
+const Searchbox = ({ setSort }) => {
 	const [searchText, setSearchText] = useState('');
 	const [searchResult, setSearchResult] = useState('');
 	const dispatch = useDispatch();
@@ -24,9 +24,13 @@ const Searchbox = () => {
 				onChange={(e) => setSearchText(encodeURI(e.target.value))}
 			/>
 			<div className='sortButtons'>
-				<span>sort</span>
-				<button className=' btnSort'>A-Z</button>
-				<button className=' btnSort'>Z-A</button>
+				<p>sort by rating</p>
+				<button onClick={() => setSort('aesc')} className=' btnSort'>
+					0-10
+				</button>
+				<button onClick={() => setSort('desc')} className=' btnSort'>
+					10-0
+				</button>
 			</div>
 		</div>
 	);

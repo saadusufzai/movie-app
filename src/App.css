@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 .navbar {
   padding: 1em 2em;
   color: #fff;
@@ -55,15 +59,19 @@
 }
 
 .home .container {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 2em 0;
 }
 
 .home .container h1 {
@@ -78,6 +86,9 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: 2em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .searchBox {
@@ -203,7 +214,12 @@ img:hover {
   color: #fff;
 }
 
+.details .container .similarMovies {
+  padding: 2em 0;
+}
+
 .details .container .similarMovies h1 {
+  text-transform: uppercase;
   margin-top: 2em;
 }
 
@@ -253,8 +269,12 @@ img:hover {
   gap: 1em;
 }
 
+.details .container .movieDetails .topDetails .top h1 {
+  text-transform: uppercase;
+}
+
 .details .container .movieDetails .topDetails .top p {
-  width: 50%;
+  width: 70%;
 }
 
 .details .container .movieDetails .topDetails li {
@@ -282,12 +302,105 @@ img:hover {
   font-size: 24px;
 }
 
+.details .container .movieDetails .topDetails .rateThisMovie {
+  padding: 1em 0;
+}
+
 .details .container .movieDetails .topDetails .rateThisMovie h3 {
-  margin: 1em 0;
+  margin: 10px 0 5px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .details .container {
+    width: 95%;
+  }
+  .details .container .movieDetails {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .details .container .movieDetails img {
+    max-width: 300px;
+    max-height: 500px;
+  }
+  .details .container .movieDetails .topDetails .top {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 1em;
+  }
+  .details .container .movieDetails .topDetails .top p {
+    width: 100%;
+  }
+  .details .similarMovies h1 {
+    text-align: center;
+  }
+  .details .similarMovies .grid {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 1em;
+  }
+}
+
+.bar {
+  fill: #4682b4;
+}
+
+.chart {
+  position: relative;
+}
+
+.bar:hover {
+  fill: #17bf3c;
+}
+
+.axis {
+  font-family: "Lobster";
+  font-size: 12px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  shape-rendering: crispEdges;
+  stroke: #000;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.y.axis text {
+  fill: #000;
+}
+
+.tooltip {
+  background: #b0c4de;
+  border: 3px solid #b0c4de;
+  border-radius: 8px;
+  font-family: "Lobster";
+  font-size: 12px;
+  font-weight: bold;
+  height: auto;
+  padding: 2px;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  width: 120px;
+}
+
+span {
+  color: #4682b4;
 }
 
 .stats {
-  margin-top: 3em;
+  margin: 3em 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -304,34 +417,20 @@ img:hover {
           justify-content: center;
 }
 
-.d3-tip {
-  line-height: 1;
-  font-weight: bold;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 2px;
-}
-
-/* Creates a small triangle extender for the tooltip */
-.d3-tip:after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: inline;
-  font-size: 10px;
-  width: 100%;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
-  content: '\25BC';
+.tooltip-area__text {
   position: absolute;
+  display: none;
+  width: auto;
+  height: auto;
+  background: none repeat scroll 0 0 white;
+  border: 0 none;
+  border-radius: 8px 8px 8px 8px;
+  -webkit-box-shadow: -3px 3px 15px #888888;
+          box-shadow: -3px 3px 15px #888888;
+  color: black;
+  font: 12px sans-serif;
+  padding: 5px;
   text-align: center;
-}
-
-/* Style northward tooltips differently */
-.d3-tip.n:after {
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
 }
 
 svg {
@@ -389,5 +488,25 @@ footer .copyright {
   background-color: #000;
   text-align: center;
   padding: 1em;
+}
+
+@media screen and (max-width: 768px) {
+  .home .container {
+    width: 100%;
+  }
+  .home .container h1 {
+    text-align: center;
+  }
+  .searchBox {
+    width: 90%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 1em;
+  }
 }
 /*# sourceMappingURL=App.css.map */

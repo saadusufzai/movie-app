@@ -8,235 +8,226 @@ $celtic-blue: #276fbfff;
 $spanish-gray: #949b96ff;
 
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
+
+a {
+  text-decoration: none;
+}
+
 .navbar {
-	padding: 1em 2em;
-	color: #fff;
+  padding: 1em 2em;
+  color: #fff;
+  background-color: $backgroundColor;
 
-	background-color: $backgroundColor;
+  .innerNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+  }
 
-	.innerNav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		width: 80%;
-		margin: 0 auto;
-	}
+  .logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+  }
+  .menu {
+    list-style: none;
+    display: flex;
+    text-transform: uppercase;
+    a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1em;
+      transition: color 0.3s ease-in-out;
+    }
 
-	.logo {
-		font-size: 24px;
-		font-weight: 800;
-		color: #fff;
-	}
-	.menu {
-		list-style: none;
-		display: flex;
-		text-transform: uppercase;
-		a {
-			color: #fff;
-			text-decoration: none;
-			margin: 0 1em;
-			transition: color 0.3s ease-in-out;
-		}
-
-		a:hover {
-			color: $colorSecondary;
-		}
-	}
+    a:hover {
+      color: $colorSecondary;
+    }
+  }
 }
 // home page
 .home {
-	background: $backgroundColor;
+  background: $backgroundColor;
 
-	.container {
-		width: 80%;
-		margin: 0 auto;
-		display: flex;
-		flex-direction: column;
+  .container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2em 0;
 
-		h1 {
-			margin: 1em 0;
-			color: $colorSecondary;
-		}
-		.grid {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 2em;
-		}
-	}
+    h1 {
+      margin: 1em 0;
+      color: $colorSecondary;
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      justify-content: center;
+    }
+  }
 }
 
 // searchBox
 
 .searchBox {
-	width: 70%;
-	display: flex;
-	align-items: center;
-	margin: 2em auto;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  margin: 2em auto;
 
-	input[type='text'] {
-		background: #fff;
-		margin: 0 auto;
-		outline: none;
-		border: none;
-		border-radius: 1em;
-		padding: 10px;
-	}
+  input[type='text'] {
+    background: #fff;
+    margin: 0 auto;
+    outline: none;
+    border: none;
+    border-radius: 1em;
+    padding: 10px;
+  }
 
-	.sortButtons {
-		p {
-			color: #fff;
-			margin-bottom: 5px;
-		}
+  .sortButtons {
+    p {
+      color: #fff;
+      margin-bottom: 5px;
+    }
 
-		.btnSort {
-			background: #000;
-			color: #fff;
-			border: none;
-			border-radius: 5px;
-			padding: 5px 10px;
-			margin: 0 5px;
-		}
+    .btnSort {
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin: 0 5px;
+    }
 
-		.btnSort:hover {
-			color: $colorSecondary;
-			cursor: pointer;
-		}
-		.btnSort:focus {
-			box-shadow: 0 0 5px rgb(15, 15, 15);
-			color: $colorSecondary;
-		}
-	}
+    .btnSort:hover {
+      color: $colorSecondary;
+      cursor: pointer;
+    }
+    .btnSort:focus {
+      box-shadow: 0 0 5px rgb(15, 15, 15);
+      color: $colorSecondary;
+    }
+  }
 }
 
 // movie box
 
 .movie-box {
-	position: relative;
-	z-index: 1;
-	box-shadow: 1px 1px 10px rgb(27, 27, 27);
+  position: relative;
+  z-index: 1;
+  box-shadow: 1px 1px 10px rgb(27, 27, 27);
 
-	.overlay {
-		cursor: pointer;
-		transform: translateY(100%);
-		z-index: -1;
-	}
-	&:hover .overlay {
-		width: 100%;
-		height: 100%;
-		background: #000;
-		opacity: 0.3;
-		position: absolute;
-		z-index: 2;
-		top: 0;
-		transform: translateY(0%);
-		transition: transform 0.3s ease-in-out;
-	}
-	.btnOverlay {
-		cursor: pointer;
-		display: none;
-		text-align: center;
-		position: absolute;
-		top: 50%;
-		left: 30%;
-		z-index: 2;
-		opacity: 1;
-		color: #fff;
-		font-weight: 600;
-		border-radius: 5px;
-		border: 5px solid $colorSecondary;
-		padding: 10px 15px;
-	}
+  .overlay {
+    cursor: pointer;
+    transform: translateY(100%);
+    z-index: -1;
+  }
+  &:hover .overlay {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.3;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    transform: translateY(0%);
+    transition: transform 0.3s ease-in-out;
+  }
+  .btnOverlay {
+    cursor: pointer;
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    z-index: 2;
+    opacity: 1;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 5px solid $colorSecondary;
+    padding: 10px 15px;
+  }
 
-	.btnOverlay:hover {
-		transform: scale(1.02);
-		transition: transform 0.3s ease-in-out;
-	}
+  .btnOverlay:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease-in-out;
+  }
 
-	&:hover .btnOverlay {
-		display: block;
-	}
+  &:hover .btnOverlay {
+    display: block;
+  }
 }
 img {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 img:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 // details pages
 
 @import 'details';
-
+@import 'svg';
 // stats page
 
 .stats {
-	margin-top: 3em;
-	display: flex;
-	flex-direction: column;
-	gap: 2em;
-	align-items: center;
-	justify-content: center;
+  margin: 3em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  align-items: center;
+  justify-content: center;
 }
 
 // d3 styles
-
-.d3-tip {
-	line-height: 1;
-	font-weight: bold;
-	padding: 12px;
-	background: rgba(0, 0, 0, 0.8);
-	color: #fff;
-	border-radius: 2px;
+.tooltip-area__text {
+  position: absolute;
+  display: none;
+  width: auto;
+  height: auto;
+  background: none repeat scroll 0 0 white;
+  border: 0 none;
+  border-radius: 8px 8px 8px 8px;
+  box-shadow: -3px 3px 15px #888888;
+  color: black;
+  font: 12px sans-serif;
+  padding: 5px;
+  text-align: center;
 }
-
-/* Creates a small triangle extender for the tooltip */
-.d3-tip:after {
-	box-sizing: border-box;
-	display: inline;
-	font-size: 10px;
-	width: 100%;
-	line-height: 1;
-	color: rgba(0, 0, 0, 0.8);
-	content: '\25BC';
-	position: absolute;
-	text-align: center;
-}
-
-/* Style northward tooltips differently */
-.d3-tip.n:after {
-	margin: -1px 0 0 0;
-	top: 100%;
-	left: 0;
-}
-
 //
 
 svg {
-	border: 1px solid #000;
+  border: 1px solid #000;
 }
 
 .graph {
-	width: auto;
+  width: auto;
 }
 
 .tooltip {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 .axis {
-	font: 10px Georgia, Arial, sans-serif;
+  font: 10px Georgia, Arial, sans-serif;
 }
 
 .axis path,
 .axis line {
-	fill: none;
-	stroke: #dadada;
-	shape-rendering: crispEdges;
+  fill: none;
+  stroke: #dadada;
+  shape-rendering: crispEdges;
 }
 
 // Footer
@@ -244,27 +235,47 @@ svg {
 /* Footer */
 
 footer {
-	background-color: #1f1d1d;
-	font-size: 12px;
-	color: #fff;
+  background-color: #1f1d1d;
+  font-size: 12px;
+  color: #fff;
 
-	.inner-footer {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 2em 3em;
-	}
+  .inner-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em 3em;
+  }
 
-	.footer-text {
-		width: 40%;
-	}
-	.contact {
-		margin-right: 3em;
-	}
+  .footer-text {
+    width: 40%;
+  }
+  .contact {
+    margin-right: 3em;
+  }
 
-	.copyright {
-		background-color: #000;
-		text-align: center;
-		padding: 1em;
-	}
+  .copyright {
+    background-color: #000;
+    text-align: center;
+    padding: 1em;
+  }
+}
+
+// media queries
+
+@media screen and (max-width: 768px) {
+  .home {
+    .container {
+      width: 100%;
+
+      h1 {
+        text-align: center;
+      }
+    }
+  }
+  .searchBox {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
 }
